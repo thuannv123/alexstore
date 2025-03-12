@@ -1,0 +1,155 @@
+$font-family: "Prompt", sans-serif;
+$color: #1565c0;
+$background-color: #1565c0;
+
+.auther-page {
+  font-family: $font-family;
+  position: relative;
+  background: #ffffff;
+  padding: 3rem;
+  .signup {
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 1200px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    .left-form {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(2px);
+      padding: 3rem;
+      .logo {
+        width: 5rem;
+        animation: App-logo-spin infinite 5s linear;
+      }
+      .des-header-form {
+        h1 {
+          font-size: 1.8rem;
+          font-weight: 500;
+        }
+        strong {
+          color: $color;
+        }
+      }
+    }
+    .right-form {
+      height: 100%;
+      img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 20px 20px 0;
+      }
+    }
+    .form {
+      label {
+        display: block;
+        color: $color;
+        margin: 1rem 0 0.7rem;
+      }
+      .remember {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 2rem 0 2rem;
+        .check-box {
+          display: flex;
+          align-items: center;
+          width: 50%;
+
+          label {
+            margin: 0 0 0 0.5rem;
+            color: #000;
+          }
+          input {
+            width: fit-content;
+          }
+        }
+        .forgot {
+          color: $color;
+        }
+      }
+      input {
+        width: 100%;
+        border: 1px solid #e1e1e1;
+        background: transparent;
+        padding: 0.7rem 1rem;
+        border-radius: 20px;
+        box-sizing: border-box;
+        font-size: medium;
+        letter-spacing: 0.5px;
+        &:focus-visible {
+          outline: 0;
+        }
+        &::placeholder {
+          color: #91a7e1;
+          opacity: 0.5;
+          font-size: 0.8rem;
+        }
+      }
+      .btn-submit {
+        cursor: pointer;
+        display: block;
+        border-radius: 20px;
+        border: 0;
+        padding: 0.7rem 2rem;
+        width: 100%;
+        position: relative;
+        span {
+          position: relative;
+          z-index: 1;
+          transition: all 0.3s;
+        }
+        &::after {
+          content: "";
+          width: 0;
+          height: 100%;
+          background: #2196f3;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 20px;
+          transition: all 0.3s;
+        }
+        &:hover {
+          span {
+            color: #fff;
+          }
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .text-signin {
+      margin: 1.5rem 0 0;
+      display: block;
+      a {
+        text-decoration: none;
+        color: $color;
+      }
+    }
+  }
+  &.signin {
+    .signup {
+      .left-form {
+        padding: 2rem 3rem;
+      }
+      .right-form {
+        img {
+          border-radius: 20px 0 0 20px;
+        }
+      }
+    }
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
