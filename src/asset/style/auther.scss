@@ -18,8 +18,6 @@ $background-color: #1565c0;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 20px;
     .left-form {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(2px);
       padding: 3rem;
       .logo {
         width: 5rem;
@@ -57,7 +55,7 @@ $background-color: #1565c0;
         .check-box {
           display: flex;
           align-items: center;
-          width: 50%;
+          width: fit-content;
 
           label {
             margin: 0 0 0 0.5rem;
@@ -151,5 +149,30 @@ $background-color: #1565c0;
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 768px) {
+  .auther-page {
+    padding: 1rem;
+    &.signin {
+      .signup {
+        .left-form {
+          padding: 2rem;
+        }
+      }
+    }
+    .signup {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      .left-form {
+        padding: 2rem;
+      }
+      .right-form {
+        display: none;
+      }
+      .form {
+        .remember {
+        }
+      }
+    }
   }
 }

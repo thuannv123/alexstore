@@ -1,0 +1,180 @@
+$theme1: #1565c0;
+
+.main-header {
+  .containner,
+  .navigation {
+    margin: auto;
+    padding: 0.5rem 10px;
+    transition: 0.2s linear;
+    .sub-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .logo {
+        width: 3.5rem;
+        animation: App-logo-spin infinite 5s linear;
+      }
+      .service {
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        .item-sv {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          padding: 0.2rem 0.5rem;
+          border-radius: 10px;
+          margin: 0 0.5rem 0 0;
+          transition: 0.2s linear;
+          img {
+            width: 1.3rem;
+            margin: 0 0.5rem 0 0;
+          }
+          &:hover {
+            background: #eaeaea;
+          }
+          &.user {
+            margin: 0;
+            span {
+              margin-right: 0.5rem;
+            }
+          }
+          .item-drop {
+            display: flex;
+            align-items: center;
+            span,
+            a {
+              margin-left: 0.5rem;
+            }
+            img {
+              margin: 0;
+              width: 1.5rem;
+            }
+          }
+          &.dropdown {
+            position: relative;
+            &.theme {
+              .dropdown-list {
+                display: flex;
+                width: 130px;
+                .color {
+                  width: calc(82% / 3);
+                  height: 36px;
+                  display: block;
+                  margin: 0 3%;
+                  border-radius: 10px;
+                  &.blue {
+                    background: blue;
+                  }
+                  &.red {
+                    background: red;
+                  }
+                  &.green {
+                    background: green;
+                  }
+                }
+              }
+            }
+            .dropdown-list {
+              position: absolute;
+              list-style: none;
+              padding: 0.6rem;
+              right: 0;
+              font-size: 0.9rem;
+              top: 34px;
+              width: 170px;
+              border-radius: 10px;
+              box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+              z-index: -1;
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s;
+              margin: 0;
+              background: #fff;
+              li {
+                padding: 0.4rem 0.7rem;
+                margin-bottom: 0.3rem;
+                display: flex;
+                align-items: center;
+                border-radius: 10px;
+                &:hover {
+                  background: #afafaf44;
+                }
+              }
+            }
+            &:hover {
+              .dropdown-list,
+              .dropdown-list:hover {
+                z-index: 2;
+                opacity: 1;
+                visibility: unset;
+              }
+            }
+          }
+        }
+        .item-nav {
+          padding: 0.7rem 0.5rem;
+          &.dropdown {
+            .dropdown-list {
+              background-color: $theme1;
+              top: 46px;
+              left: 0;
+              width: 250px;
+            }
+          }
+          a,
+          span {
+            font-size: 1rem;
+            color: #fff;
+          }
+          &:hover {
+            background: #00000047;
+          }
+        }
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
+  .container-nav {
+    background: $theme1;
+    .sub-container {
+      .service {
+        .item-sv {
+          .item-drop {
+            img {
+              width: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (min-width: 1600px) {
+  .main-header {
+    .containner,
+    .navigation {
+      max-width: 1550px;
+      padding: 0 3rem;
+    }
+  }
+}
+@media (min-width: 1280px) {
+  .main-header {
+    .containner,
+    .navigation {
+      padding: 0 3rem;
+    }
+  }
+}
