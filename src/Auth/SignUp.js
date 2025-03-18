@@ -1,6 +1,6 @@
-import "../../asset/style/auther.scss";
-import img from "../../asset/img/bg.jpg";
-import logo from "../../asset/img/logo.png";
+import "../asset/style/auther.scss";
+import img from "../asset/img/bg.jpg";
+import logo from "../asset/img/logo.png";
 
 const SignUp = () => {
   return (

@@ -1,11 +1,15 @@
 $theme1: #1565c0;
 
 .main-header {
-  .containner,
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+  .container,
   .navigation {
     margin: auto;
-    padding: 0.5rem 10px;
     transition: 0.2s linear;
+    animation: scale 0.5s;
     .sub-container {
       display: flex;
       align-items: center;
@@ -137,6 +141,10 @@ $theme1: #1565c0;
         }
       }
     }
+    .hamberger,
+    .btn-user {
+      display: none;
+    }
   }
   .container-nav {
     background: $theme1;
@@ -153,17 +161,9 @@ $theme1: #1565c0;
     }
   }
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 @media (min-width: 1600px) {
   .main-header {
-    .containner,
+    .container,
     .navigation {
       max-width: 1550px;
       padding: 0 3rem;
@@ -172,9 +172,90 @@ $theme1: #1565c0;
 }
 @media (min-width: 1280px) {
   .main-header {
-    .containner,
+    .container,
     .navigation {
-      padding: 0 3rem;
+      padding: 0rem 3rem;
     }
+  }
+}
+@media (max-width: 1000px) {
+  .main-header {
+    .navigation {
+      .sub-container {
+        .service {
+          .item-sv {
+            margin: 0;
+            img {
+              display: none;
+            }
+            // a,
+            // span {
+            //   font-size: 0.9rem;
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .main-header {
+    &.overlay::before {
+      content: "";
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.208);
+      z-index: 1;
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      .hamberger,
+      .btn-user {
+        display: block;
+        border: 0;
+        background: transparent;
+        position: relative;
+        z-index: 4;
+        img {
+          width: 2rem;
+        }
+      }
+    }
+    .container-nav {
+      width: 80%;
+      transform: translateX(-1000px);
+      transition: all 0.5s ease;
+      z-index: 3;
+      position: absolute;
+      height: 100vh;
+      .navigation {
+        .nav-bar {
+          .service {
+            flex-direction: column;
+            .item-sv {
+              margin-right: auto;
+              .item-drop {
+                span {
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.active {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

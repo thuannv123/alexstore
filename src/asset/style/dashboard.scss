@@ -1,0 +1,346 @@
+$theme1: #1565c0;
+$font-awesome: FontAwesome;
+.main-dashboard {
+  background: #f0f0f0a6;
+  .container-dashboard {
+    height: 100%;
+    min-height: 100%;
+    padding: 1rem;
+    .dashboard-left {
+      float: left;
+      width: calc(100% - 320px);
+      padding-bottom: 1rem;
+      .total-curency {
+        background: #fff;
+        padding: 1.1rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        h2 {
+          margin: 0;
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+        .box-bill {
+          display: inline-flex;
+          max-width: 25%;
+          align-items: center;
+          margin: 1rem 2rem 0 0;
+          padding-right: 2rem;
+          .usd-icon {
+            width: 2.2rem;
+            height: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $theme1;
+            border-radius: 50%;
+            color: #fff;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+          }
+          .child-bill {
+            .number {
+              font-size: 1.5rem;
+              color: $theme1;
+            }
+            span {
+              font-size: 0.7rem;
+            }
+          }
+          &.return {
+            .usd-icon {
+              background: orange;
+            }
+            .child-bill {
+              .number {
+                color: orange;
+              }
+            }
+          }
+          &.down {
+            max-width: 100%;
+            .usd-icon {
+              background: red;
+            }
+            .child-bill {
+              .number {
+                color: red;
+              }
+            }
+          }
+          &:not(:last-child) {
+            border-right: 1px solid #cbcbcb;
+          }
+        }
+        span {
+          display: block;
+        }
+      }
+      .total-chart {
+        background: #fff;
+        margin-top: 1rem;
+        padding: 1.1rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        .box-revenue {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          align-items: center;
+          margin-bottom: 1rem;
+          .revenue {
+            display: inline-flex;
+            align-items: center;
+            h2 {
+              margin: 0;
+              font-weight: 500;
+              font-size: 1rem;
+              text-transform: uppercase;
+            }
+            .total-revenue {
+              margin: 0 1rem;
+              display: flex;
+              align-items: center;
+              .icon-tt {
+                width: 1.5rem;
+                height: 1.5rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background: #000;
+                color: #fff;
+                margin-right: 0.5rem;
+              }
+              .numb {
+                color: $theme1;
+                font-weight: 600;
+              }
+            }
+          }
+          .sell {
+            h2 {
+              margin: 0;
+              font-weight: 500;
+              font-size: 1rem;
+              text-transform: uppercase;
+              display: inline-flex;
+              align-items: center;
+            }
+            .total-revenue {
+              .main-filter {
+                width: 210px;
+                font-size: 1rem;
+                text-align: left;
+                box-shadow: none;
+              }
+              .drop-filter {
+                text-transform: none;
+              }
+            }
+          }
+          .filter-revenue {
+            position: relative;
+            .main-filter {
+              cursor: pointer;
+              padding: 5px 10px;
+              border-radius: 0.5rem;
+              width: 100px;
+              text-align: center;
+              color: $theme1;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            }
+            .drop-filter {
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              height: 0;
+              overflow: hidden;
+              background: #fff;
+              z-index: 2;
+              top: 40px;
+              left: 0;
+              border-radius: 0.5rem;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+              transition: height 0.1s;
+              span {
+                cursor: pointer;
+
+                padding: 5px 15px;
+              }
+            }
+            &.total-sell {
+              &.active {
+                .drop-filter {
+                  height: 68px;
+                }
+              }
+            }
+            &.active {
+              .drop-filter {
+                height: 102px;
+                width: 100%;
+              }
+            }
+          }
+        }
+        .tab-revenue {
+          margin: 1rem 0;
+          span {
+            margin-right: 2rem;
+            position: relative;
+            cursor: pointer;
+            padding-bottom: 5px;
+            &::after {
+              bottom: 0;
+              left: 0;
+              content: "";
+              width: 0%;
+              position: absolute;
+              height: 2px;
+              background: $theme1;
+              transition: 0.3s;
+            }
+            &.active {
+              color: $theme1;
+              &::after {
+                bottom: 0;
+                left: 0;
+                content: "";
+                width: 100%;
+                position: absolute;
+                height: 2px;
+                background: $theme1;
+                transition: 0.3s;
+              }
+            }
+            &:hover::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .dashboard-right {
+      float: none;
+      width: auto;
+      margin-left: calc(100% - 300px);
+      min-height: 1479px;
+      .zalo-arc {
+        height: 7rem;
+        background: #fff;
+        padding: 1.375rem 1rem;
+        border-radius: 0.5rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-image: url("../img/zed.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .history {
+        background: #fff;
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        .action {
+          h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+          }
+          ul {
+            padding: 0 0 0 1.5rem;
+            border-left: 1px solid #f0f0f0;
+            margin: 1rem 0.8rem;
+            li {
+              list-style: none;
+              font-size: 0.8rem;
+              position: relative;
+              margin: 1rem 0;
+              .icon {
+                display: inline-block;
+                position: absolute;
+                width: 28px;
+                height: 28px;
+                text-align: center;
+                line-height: 30px;
+                border-radius: 100%;
+                color: #fff;
+                left: -37px;
+                top: 11px;
+                &.invoice {
+                  background: $theme1;
+                }
+                &.oder {
+                  background: red;
+                }
+              }
+              a {
+                text-decoration: none;
+                color: $theme1;
+              }
+              .time {
+                display: block;
+                font-size: 0.7rem;
+                margin-top: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-dashboard {
+    max-width: 1550px;
+    padding: 0 3rem;
+    margin: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .container-dashboard {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 900px) {
+  .main-dashboard {
+    .container-dashboard {
+      .dashboard-left {
+        .total-curency {
+          .box-bill {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .main-dashboard {
+    .container-dashboard {
+      padding: 1rem;
+      .dashboard-left {
+        width: 100%;
+        float: none;
+      }
+      .dashboard-right {
+        margin: 0;
+      }
+    }
+  }
+}
+@media (max-width: 440px) {
+  .main-dashboard {
+    .container-dashboard {
+      .dashboard-left {
+        .total-curency {
+          .box-bill:not(:last-child) {
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}

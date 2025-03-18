@@ -1,28 +1,42 @@
-import React from "react";
-import imglogo from "../../asset/img/logo.png";
-import ship from "../../asset/img/ship.png";
-import cash from "../../asset/img/cash.png";
-import theme from "../../asset/img/theme.png";
-import support from "../../asset/img/support.png";
-import chatbb from "../../asset/img/chat-bubble.png";
-import account from "../../asset/img/account.png";
-import user from "../../asset/img/user.png";
-import file from "../../asset/img/file.png";
-import signout from "../../asset/img/sign-out.png";
-import overview from "../../asset/img/overview.png";
-import goods from "../../asset/img/goods.png";
-import transaction from "../../asset/img/transaction.png";
-import partner from "../../asset/img/partner.png";
-import staff from "../../asset/img/staff.png";
-import fund from "../../asset/img/fund.png";
-import report from "../../asset/img/report.png";
-import onlinesale from "../../asset/img/online-sale.png";
-import "../../asset/style/header.scss";
+import React, { useState } from "react";
+import imglogo from "../asset/img/logo.png";
+import ship from "../asset/img/ship.png";
+import cash from "../asset/img/cash.png";
+import theme from "../asset/img/theme.png";
+import support from "../asset/img/support.png";
+import chatbb from "../asset/img/chat-bubble.png";
+import account from "../asset/img/account.png";
+import user from "../asset/img/user.png";
+import file from "../asset/img/file.png";
+import signout from "../asset/img/sign-out.png";
+import overview from "../asset/img/overview.png";
+import goods from "../asset/img/goods.png";
+import transaction from "../asset/img/transaction.png";
+import partner from "../asset/img/partner.png";
+import staff from "../asset/img/staff.png";
+import fund from "../asset/img/fund.png";
+import report from "../asset/img/report.png";
+import onlinesale from "../asset/img/online-sale.png";
+import hamberger from "../asset/img/stack.png";
+import close from "../asset/img/close.png";
+import "../asset/style/header.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isActive, setActive] = useState(false);
+  const handlMenu = () => {
+    setActive(!isActive);
+  };
   return (
-    <div className="main-header">
-      <div className="containner">
+    <div className={`main-header ${!isActive ? "" : "overlay"}`}>
+      <div className="container">
+        <button className="hamberger" onClick={handlMenu}>
+          {!isActive ? (
+            <img src={hamberger} alt="" className="btn-img" />
+          ) : (
+            <img src={close} alt="" className="btn-img" />
+          )}
+        </button>
         <div className="sub-container">
           <img src={imglogo} alt="" className="logo" />
           <div className="service">
@@ -75,8 +89,9 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <button className="btn-user"></button>
       </div>
-      <div className=" container-nav">
+      <div className={`container-nav ${!isActive ? "" : "active"}`}>
         <div className="navigation">
           <div className="nav-bar sub-container">
             <div className="nav service ">
@@ -92,7 +107,9 @@ const Header = () => {
                 <ul className="dropdown-list">
                   <li>
                     <img src={cash} alt="" />
-                    <a href="/">Danh mục</a>
+                    {/* <a href="/">Danh mục</a> */}
+
+                    <Link to="/ProducStatistics">Danh mục</Link>
                   </li>
                   <li>
                     <img src={cash} alt="" />
