@@ -97,7 +97,7 @@ const Header = () => {
             <div className="nav service ">
               <div className="item-nav item-sv">
                 <img src={overview} alt="" />
-                <a href="/">Tổng quan</a>
+                <Link to="/">Tổng quan</Link>
               </div>
               <div className="item-sv item-nav dropdown">
                 <div className="item-drop">
@@ -107,9 +107,8 @@ const Header = () => {
                 <ul className="dropdown-list">
                   <li>
                     <img src={cash} alt="" />
-                    {/* <a href="/">Danh mục</a> */}
 
-                    <Link to="/ProducStatistics">Danh mục</Link>
+                    <Link to="/Products">Danh mục</Link>
                   </li>
                   <li>
                     <img src={cash} alt="" />

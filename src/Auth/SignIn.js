@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../../asset/style/auther.scss";
-import img from "../../asset/img/bg.jpg";
-import logo from "../../asset/img/logo.png";
+import "../asset/style/auther.scss";
+import img from "../asset/img/bg.jpg";
+import logo from "../asset/img/logo.png";
 import { login, getUser } from "../service/AutherInfo";
 import { useNavigate } from "react-router-dom";
 
