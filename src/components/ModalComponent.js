@@ -6,7 +6,7 @@ const ModalComponent = ({ isOpen, onClose, children }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="modal-close" onClick={onClose}>
-          ✖
+          <i className="fa-solid fa-xmark"></i>
         </button>
         {children}
       </div>

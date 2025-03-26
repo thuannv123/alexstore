@@ -4,6 +4,7 @@ import "../asset/style/product-page.scss";
 import { Link } from "react-router-dom";
 import ModalComponent from "../components/ModalComponent";
 import AddGoods from "../components/AddGoods";
+import img from "../../src/asset/img/zed.png";
 const Products = () => {
   const filterStatus = [
     { id: "goods", label: "Hàng hóa" },
@@ -149,9 +150,60 @@ const Products = () => {
             </div>
           </div>
         </div>
+        <table className="table-product">
+          <tr>
+            <th>
+              <input type="checkbox" />
+              <input type="checkbox" />
+            </th>
+            <th>
+              <span>Mã hàng</span>
+            </th>
+            <th>
+              <span>Ten hàng</span>
+            </th>
+            <th>
+              <span>Giá bán</span>
+            </th>
+            <th>
+              <span>Giá vốn</span>
+            </th>
+            <th>
+              <span>Thương hiệu</span>
+            </th>
+            <th>
+              <span>Tồn kho</span>
+            </th>
+            <th>
+              <span>Khách đặt</span>
+            </th>
+            <th>
+              <span>Thời gian tạo</span>
+            </th>
+          </tr>
+          <tr className="product">
+            <td>
+              <input type="checkbox" name="" id="" />
+              <input type="checkbox" />
+            </td>
+            <td className="img-td">
+              <img src={img} alt="" width={50} height={30} />
+              <span>SP00025</span>
+            </td>
+            <td>Bộ Lego City town square</td>
+            <td>3,199,000 </td>
+            <td>3,080,000</td>
+            <td>Alex Store </td>
+            <td>184</td>
+            <td>0</td>
+            <td>20/03/2025 8:30</td>
+            <div className="div">haha</div>
+          </tr>
+        </table>
       </div>
+
       <ModalComponent isOpen={isModel} onClose={() => setIsModal(null)}>
-        <p>{isModel?.content}</p>
+        {isModel?.content}
         <div className="btn-modal">
           <button className="save-modal">
             <i className="fa-solid fa-floppy-disk"></i>Lưu
