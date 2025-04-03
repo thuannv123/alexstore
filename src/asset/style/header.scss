@@ -15,7 +15,7 @@ $theme1: #1565c0;
       align-items: center;
       justify-content: space-between;
       .logo {
-        width: 3.5rem;
+        width: 4.5rem;
         animation: App-logo-spin infinite 5s linear;
       }
       .service {
@@ -249,13 +249,5 @@ $theme1: #1565c0;
         transform: translateX(0);
       }
     }
-  }
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
