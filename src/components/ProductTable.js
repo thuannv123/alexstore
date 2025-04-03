@@ -52,7 +52,7 @@ const ProductTable = ({
             <React.Fragment key={item.productCode}>
               <tr
                 className="products"
-                onClick={() => handleRowClick(item.productCode)}
+                onClick={(e) => handleRowClick(item.productCode, e)}
               >
                 <td>
                   <input type="checkbox" name="" id="" />
@@ -223,9 +223,59 @@ const ProductTable = ({
                           </div>
                         </div>
                       ) : getActiveTab(item.productCode) === "storageTag" ? (
-                        <div className="product-detail ">thẻ kho</div>
+                        <div className="product-detail storage">
+                          <table className="table">
+                            <thead>
+                              <tr>
+                                <th>Chứng từ</th>
+                                <th>Thời gian</th>
+                                <th>Loại giao dịch</th>
+                                <th>Đối tác</th>
+                                <th>Giá GD</th>
+                                <th>Giá vốn</th>
+                                <th>Số lượng</th>
+                                <th>Tồn cuối</th>
+                              </tr>
+                            </thead>
+                            <tbody></tbody>
+                          </table>
+                          <div className="no-data">
+                            <div className="content">
+                              <i className="fa-solid fa-inbox"></i>
+                              Không tìm thấy kết quả
+                            </div>
+                          </div>
+                        </div>
                       ) : (
-                        <div className="product-detail">tồn kho</div>
+                        <div className="product-detail currentStock">
+                          <table className="table">
+                            <thead>
+                              <tr>
+                                <th>Chi nhánh</th>
+                                <th>Tồn kho</th>
+                                <th>KH đặt</th>
+                                <th>Dự kiến hết hàng</th>
+                                <th>Trạng thái</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>Chi nhánh trung tâm</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>---</td>
+                                <td>Đang kinh doanh</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </div>
                   </td>

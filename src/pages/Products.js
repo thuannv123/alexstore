@@ -7,6 +7,7 @@ import AddGoods from "../components/AddGoods";
 import ProductTable from "../components/ProductTable";
 import AddService from "../components/AddService";
 import AddCombo from "../components/AddCombo";
+import FilterProduct from "../components/FilterProduct";
 const Products = () => {
   const dataProduct = [
     {
@@ -80,7 +81,12 @@ const Products = () => {
       [key]: !prev[key],
     }));
   };
-  const handleRowClick = (productCode) => {
+  const handleRowClick = (productCode, event) => {
+    if (event.target.type === "checkbox") {
+      event.stopPropagation();
+      return;
+    }
+
     setExpandedRows((prev) =>
       prev.includes(productCode)
         ? prev.filter((code) => code !== productCode)
@@ -92,57 +98,18 @@ const Products = () => {
       ...prevTab,
       [productCOde]: tab,
     }));
-    console.log(tab);
   };
   const getActiveTab = (productCode) => isTab[productCode] || "inforProduct";
   return (
     <div className="product-view">
       <div className="section-left">
         <h2>Hàng hóa</h2>
-        <div className="filter-product">
-          <div
-            className={`box status ${
-              isToggle.status === false ? "active" : ""
-            }`}
-          >
-            <span className="title" onClick={() => handleToggle("status")}>
-              Loại hàng
-            </span>
-            {isToggle.status && (
-              <div className="box-check">
-                {filterStatus.map((item) => (
-                  <div className="item-check" key={item.id}>
-                    <label htmlFor={item.id}>
-                      <input type="checkbox" id={item.id} />
-                      {item.label}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-          <div
-            className={`box category ${
-              isToggle.category === false ? "active" : ""
-            }`}
-          >
-            <span className="title" onClick={() => handleToggle("category")}>
-              Tồn kho
-            </span>
-            {isToggle.category && (
-              <div className="box-check">
-                {filterStock.map((item) => (
-                  <div className="item-check" key={item.id}>
-                    <label htmlFor={item.id}>
-                      <input type="checkbox" name="" id={item.id} />
-                      {item.label}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
+        <FilterProduct
+          handleToggle={handleToggle}
+          filterStatus={filterStatus}
+          filterStock={filterStock}
+          isToggle={isToggle}
+        />
       </div>
       <div className="section-right">
         <div className="box-top">

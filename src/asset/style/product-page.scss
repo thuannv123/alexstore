@@ -148,6 +148,11 @@ $background-color: #1565c0;
       background: #fff;
       padding: 10px 0;
       width: 100%;
+      thead {
+        th {
+          background: #0ccaf017;
+        }
+      }
       tr {
         border-bottom: 1px solid #e4e4e4;
         span {
@@ -162,7 +167,7 @@ $background-color: #1565c0;
       .products {
         cursor: pointer;
         &:hover {
-          background: #0ccaf017;
+          background: #09f51c17;
         }
       }
       td {
@@ -175,7 +180,7 @@ $background-color: #1565c0;
         }
       }
       .product-detail-infor {
-        background-color: #0ccaf017;
+        background-color: #09f51c17;
         .more-infor-product {
           padding: 10px 0 0;
           text-align: left;
@@ -270,6 +275,64 @@ $background-color: #1565c0;
                 margin-left: 1rem;
                 i {
                   margin-right: 5px;
+                }
+              }
+            }
+            &.storage {
+              padding: 1rem;
+              .table {
+                margin-bottom: 0;
+                thead {
+                  th {
+                    background: #cae3ff;
+                    font-size: 0.9rem;
+                    text-align: left;
+                  }
+                }
+                tbody {
+                  td:first-child {
+                    text-align: left;
+                  }
+                }
+              }
+              .no-data {
+                max-height: 225px;
+                width: 100%;
+                background-color: #f4f4f4;
+                .content {
+                  min-height: 140px;
+                  display: flex;
+                  align-items: center;
+                  flex-direction: column;
+                  justify-content: center;
+                  i {
+                    font-size: 3rem;
+                    color: #cacaca;
+                  }
+                }
+              }
+            }
+            &.currentStock {
+              padding: 1rem;
+              .table {
+                margin-bottom: 0;
+                thead {
+                  th {
+                    background: #cae3ff;
+                    text-align: right;
+                    &:first-child {
+                      font-size: 0.9rem;
+                      text-align: left;
+                    }
+                  }
+                }
+                tbody {
+                  td {
+                    text-align: right;
+                    &:first-child {
+                      text-align: left;
+                    }
+                  }
                 }
               }
             }
