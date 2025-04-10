@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import "../asset/style/product-page.scss";
 import { Link } from "react-router-dom";
 import ModalComponent from "../components/ModalComponent";
-import AddGoods from "../components/AddGoods";
 import ProductTable from "../components/ProductTable";
-import AddService from "../components/AddService";
-import AddCombo from "../components/AddCombo";
 import FilterProduct from "../components/FilterProduct";
+import AddGoods from "../components/addproduct/AddGoods";
+import AddService from "../components/addproduct/AddService";
+import AddCombo from "../components/addproduct/AddCombo";
+import ImportFile from "../components/ImportFile";
 const Products = () => {
   const dataProduct = [
     {
@@ -71,6 +72,8 @@ const Products = () => {
         ? { content: <AddService /> }
         : modal === "combo"
         ? { content: <AddCombo /> }
+        : modal === "import"
+        ? { content: <ImportFile /> }
         : null
     );
     console.log(modal);
@@ -180,20 +183,6 @@ const Products = () => {
 
       <ModalComponent isOpen={isModel} onClose={() => setIsModal(null)}>
         {isModel?.content}
-        <div className="btn-modal">
-          <button className="save-modal">
-            <i className="fa-solid fa-floppy-disk"></i>Lưu
-          </button>
-          <button className="save-add-modal">
-            <i className="fa-solid fa-floppy-disk"></i>Lưu & thêm mới
-          </button>
-          <button className="save-copy-modal">
-            <i className="fa-solid fa-floppy-disk"></i>Lưu & sao chép
-          </button>
-          <button className="skip-modal">
-            <i className="fa-solid fa-ban"></i>Bỏ qua
-          </button>
-        </div>
       </ModalComponent>
     </div>
   );

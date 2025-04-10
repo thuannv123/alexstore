@@ -20,12 +20,19 @@ import onlinesale from "../asset/img/online-sale.png";
 import hamberger from "../asset/img/stack.png";
 import close from "../asset/img/close.png";
 import "../asset/style/header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const handlMenu = () => {
     setActive(!isActive);
+  };
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    console.log("đăng xuất thành công");
+
+    navigate("/signin");
   };
   return (
     <div className={`main-header ${!isActive ? "" : "overlay"}`}>
@@ -83,7 +90,8 @@ const Header = () => {
                 </li>
                 <li>
                   <img src={signout} alt="" />
-                  <a href="/">Đăng xuất</a>
+                  <span onClick={handleLogout}>Đăng xuất</span>
+                  {/* <a href="/">Đăng xuất</a> */}
                 </li>
               </ul>
             </div>
@@ -108,7 +116,7 @@ const Header = () => {
                   <li>
                     <img src={cash} alt="" />
 
-                    <Link to="/Products">Danh mục</Link>
+                    <Link to="/dashboard/Products">Danh mục</Link>
                   </li>
                   <li>
                     <img src={cash} alt="" />

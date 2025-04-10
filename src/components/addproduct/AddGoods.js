@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import DefaultIMG from "../asset/img/default-product-img.jpg";
+import DefaultIMG from "../../asset/img/default-product-img.jpg";
 
-const AddCombo = () => {
+const AddGoods = () => {
   const [isActive, setIsActive] = useState("");
   const handleActive = () => {
     setIsActive(!isActive);
@@ -13,7 +13,7 @@ const AddCombo = () => {
   return (
     <div className="form-goods form-add">
       <form action="">
-        <h2>Thêm combo + đóng gói</h2>
+        <h2>Thêm hàng hóa</h2>
         <div className="tab-content">
           <span
             className={`tab-panel ${isTab === "panel_1" ? "active" : ""}`}
@@ -70,6 +70,14 @@ const AddCombo = () => {
                 </div>
               </div>
               <div className="add-right">
+                <div className="form-group">
+                  <label htmlFor="">Giá vốn</label>
+                  <input type="text" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="">Giá bán</label>
+                  <input type="text" />
+                </div>
                 <div className="form-group">
                   <label htmlFor="">Tồn kho</label>
                   <input type="text" />
@@ -133,8 +141,22 @@ const AddCombo = () => {
           </div>
         )}
       </form>
+      <div className="btn-modal">
+        <button className="save-modal">
+          <i className="fa-solid fa-floppy-disk"></i>Lưu
+        </button>
+        <button className="save-add-modal">
+          <i className="fa-solid fa-floppy-disk"></i>Lưu & thêm mới
+        </button>
+        <button className="save-copy-modal">
+          <i className="fa-solid fa-floppy-disk"></i>Lưu & sao chép
+        </button>
+        <button className="skip-modal">
+          <i className="fa-solid fa-ban"></i>Bỏ qua
+        </button>
+      </div>
     </div>
   );
 };
 
-export default AddCombo;
+export default AddGoods;

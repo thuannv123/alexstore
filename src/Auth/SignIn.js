@@ -4,6 +4,7 @@ import img from "../asset/img/bg.jpg";
 import logo from "../asset/img/logo.png";
 import { login, getUser } from "../service/AutherInfo";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -16,14 +17,21 @@ const SignIn = () => {
     try {
       const { token } = await login(email, password);
       localStorage.setItem("token", token);
-      alert("haha");
-      navigate("/dashboard");
-      const userData = await getUser();
+
+      const userData = await getUser(2);
       setUser(userData.data);
+
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message);
     }
   };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [navigate]);
   return (
     <div className="auther-page">
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -41,6 +49,7 @@ const SignIn = () => {
             <label htmlFor="">Email:</label>
             <input
               type="email"
+              autoComplete="email"
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="Email"
@@ -48,6 +57,7 @@ const SignIn = () => {
             <label htmlFor="">Mật khẩu:</label>
             <input
               type="password"
+              autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Password"
